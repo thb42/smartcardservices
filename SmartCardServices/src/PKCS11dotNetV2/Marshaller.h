@@ -73,7 +73,7 @@ public:
 
     inline std::string& GetReaderName( void ) { if( m_pPCSC ) { return m_pPCSC->getReaderName( ); } else throw ("Empty PCSC context"); }
 
-    inline SCARDHANDLE GetCardHandle( void ) { if( m_pPCSC ) { return m_pPCSC->getCardHandle( ); } return NULL; }
+    inline SCARDHANDLE GetCardHandle( void ) { if( m_pPCSC ) { return m_pPCSC->getCardHandle( ); } return 0; }
     
     inline void DoTransact( bool& flag ) { if( m_pPCSC ) { m_pPCSC->doTransact( flag ); } }
 
