@@ -34,7 +34,7 @@ const unsigned char MAX_RETRY = 2;
 void MiniDriverCardCacheFile::write( void ) {
 
     // Create a buffer to write the file oncard
-    std::auto_ptr< Marshaller::u1Array > f( new Marshaller::u1Array( 6 ) );
+    std::unique_ptr< Marshaller::u1Array > f( new Marshaller::u1Array( 6 ) );
 
     // Set the version flag
     f->SetU1At( 0, m_ucVersion );

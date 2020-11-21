@@ -258,7 +258,7 @@ void DeviceMonitor::getDevicesList( const SCARDCONTEXT& h, std::vector< std::str
         }
     }
 
-    std::auto_ptr< char > pszReaders( new char[ dwReaders ] );
+    std::unique_ptr< char > pszReaders( new char[ dwReaders ] );
     memset( pszReaders.get( ), 0,  dwReaders );
     //pszReaders = (char *)malloc(dwReaders);
 

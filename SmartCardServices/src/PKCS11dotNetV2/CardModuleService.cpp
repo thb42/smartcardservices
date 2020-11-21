@@ -48,7 +48,7 @@ CardModuleService::SMARTCARD_TYPE CardModuleService::getVersion( void ) {
 
     try {
 
-        std::auto_ptr< Marshaller::u1Array > s( getCardProperty( CARD_VERSION_INFO, 0 ) );
+        std::unique_ptr< Marshaller::u1Array > s( getCardProperty( CARD_VERSION_INFO, 0 ) );
 
         if( s.get( )  ) { 
       
@@ -497,7 +497,7 @@ unsigned int CardModuleService::getMemory( void ) {
             // Try the "getFreeSpace" command
             try { 
 
-                std::auto_ptr< Marshaller::s4Array > a;
+                std::unique_ptr< Marshaller::s4Array > a;
 
                 Invoke(0, 0x00E5, MARSHALLER_TYPE_RET_S4ARRAY, &a ); 
 
@@ -516,7 +516,7 @@ unsigned int CardModuleService::getMemory( void ) {
 
         try { 
 
-            std::auto_ptr< Marshaller::s4Array > a;
+            std::unique_ptr< Marshaller::s4Array > a;
 
             Invoke(0, 0x00E5, MARSHALLER_TYPE_RET_S4ARRAY, &a ); 
 

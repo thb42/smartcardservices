@@ -200,7 +200,7 @@ void MiniDriver::cacheSerialize( void ) {
         // Read the whole file
         ifs.seekg( 0, std::ios::beg );
         
-        std::auto_ptr< char > p( new char[ l ] );
+        std::unique_ptr< char > p( new char[ l ] );
         
         ifs.read( p.get( ), l );
 
@@ -306,7 +306,7 @@ void MiniDriver::cacheDeserialize( void ) {
         // Read the whole file
         ifs.seekg( 0, std::ios::beg );
         
-        std::auto_ptr< char > p( new char[ l ] );
+        std::unique_ptr< char > p( new char[ l ] );
         
         ifs.read( p.get( ), l );
 
@@ -357,11 +357,11 @@ Marshaller::u1Array* MiniDriver::getSerialNumber( void ) {
             // Read the cardid file containing a unique 16-byte binary identifier for the smart card (GUID).
             std::string s( szCARD_IDENTIFIER_FILE );
 
-            //std::auto_ptr< Marshaller::u1Array > f( m_CardModule->readFile( &s ) );
+            //std::unique_ptr< Marshaller::u1Array > f( m_CardModule->readFile( &s ) );
             
             std::string stDirectory;
 
-            std::auto_ptr< Marshaller::u1Array > f( m_Files.readFileWithoutCheck( stDirectory, s ) );
+            std::unique_ptr< Marshaller::u1Array > f( m_Files.readFileWithoutCheck( stDirectory, s ) );
             
             // Get the 12th last bytes as serial number
             m_u1aSerialNumber.reset( new Marshaller::u1Array( *f, 4, 12 ) );
@@ -579,7 +579,7 @@ void MiniDriver::createCertificateRoot( std::string& a_stCertificateName, Marsha
     cacheSerialize( );
     
     //std::string stPathCertificateRoot( szROOT_STORE_FILE );
-    //std::auto_ptr< Marshaller::u1Array > pRoots;
+    //std::unique_ptr< Marshaller::u1Array > pRoots;
 
     //try {
 
@@ -653,7 +653,7 @@ void MiniDriver::createCertificateRoot( std::string& a_stCertificateName, Marsha
 
     //compressedCert.SetBuffer( cc.get( ) );
 
-    //std::auto_ptr< Marshaller::u1Array > pNewRoots;
+    //std::unique_ptr< Marshaller::u1Array > pNewRoots;
     //if( *pRoots ) {
     //
     //    pNewRoots.reset( new Marshaller::u1Array( compressedCert.GetLength( ) + pRoots->GetLength( ) ) );

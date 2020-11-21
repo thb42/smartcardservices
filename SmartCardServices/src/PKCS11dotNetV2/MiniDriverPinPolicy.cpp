@@ -54,7 +54,7 @@ void MiniDriverPinPolicy::write( void ) {
 */
 void MiniDriverPinPolicy::read( void ) { 
     
-    std::auto_ptr< Marshaller::u1Array > b;
+    std::unique_ptr< Marshaller::u1Array > b;
 
     try {
 

@@ -117,7 +117,7 @@ void MiniDriverContainerMapFile::containerRead( void ) {
 
                     unsigned char f = 0;
                     
-                    std::auto_ptr< Marshaller::u1Array > containerType( cms->getContainerProperty( i, CARD_PROPERTY_CONTAINER_TYPE, f ) );
+                    std::unique_ptr< Marshaller::u1Array > containerType( cms->getContainerProperty( i, CARD_PROPERTY_CONTAINER_TYPE, f ) );
                     
                     if( containerType.get( ) ) {
 
@@ -128,7 +128,7 @@ void MiniDriverContainerMapFile::containerRead( void ) {
 
                     f = 0;
 
-                    std::auto_ptr< Marshaller::u1Array > containerPinIdentifier( cms->getContainerProperty( i, CARD_PROPERTY_PIN_IDENTIFIER, f ) );
+                    std::unique_ptr< Marshaller::u1Array > containerPinIdentifier( cms->getContainerProperty( i, CARD_PROPERTY_PIN_IDENTIFIER, f ) );
                     
                     if( containerPinIdentifier.get( ) ) {
                     

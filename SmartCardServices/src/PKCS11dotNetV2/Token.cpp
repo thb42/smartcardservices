@@ -374,7 +374,7 @@ void Token::readTokenInfo( void ) {
         /*CK_BBOOL _version =*/ Util::ReadBBoolFromVector( v, &idx );
 
         // label
-        std::auto_ptr< Marshaller::u1Array > label( Util::ReadByteArrayFromVector( v, &idx ) );
+        std::unique_ptr< Marshaller::u1Array > label( Util::ReadByteArrayFromVector( v, &idx ) );
 
         memset( m_TokenInfo.label, ' ', sizeof( m_TokenInfo.label ) );
 
