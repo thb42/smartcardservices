@@ -3603,7 +3603,7 @@ bool Token::checkSmartCardContent( void ) {
 
     std::string stContainerIndex = "";
     unsigned char ucKeySpec = MiniDriverContainer::KEYSPEC_EXCHANGE;
-    unsigned int uiKeySize = 0;
+    // unsigned int uiKeySize = 0;
     std::string stPrefix = "";
     std::string stCertificateFileName = "";
     std::string stObjectPKCS11 = "";
