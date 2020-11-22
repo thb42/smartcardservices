@@ -1959,7 +1959,7 @@ void Token::deleteObjectFromCard( StorageObject* a_pObject ) {
                     // Delete the associated certificate
                     m_Device->certificateDelete( t->m_ucContainerIndex );
 
-                } catch( MiniDriverException ) {
+                } catch( MiniDriverException& ) {
                 
                     // The container is not associated to this certitifcate object
                     // Delete the MiniDriver file from the PKCS11 object file name
