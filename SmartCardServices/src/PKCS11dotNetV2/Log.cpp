@@ -1496,10 +1496,6 @@ template<typename T> void Log::classtoString( const T & value, std::string &resu
 		return;
 	}
 
-    if( NULL == &value )
-	{
-		return;
-	}
 	std::ostringstream str;
 	str << value;
 	result.assign( str.str( ) );
