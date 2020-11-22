@@ -371,7 +371,7 @@ Marshaller::u1Array* MiniDriver::getSerialNumber( void ) {
             
         } catch( MiniDriverException& ) {
         
-            int i = 0;
+            // int i = 0;
         }
 
         //// Try first to load the serial number in a V2+ way
